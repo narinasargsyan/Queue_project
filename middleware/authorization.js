@@ -7,9 +7,8 @@ const checkRole = (role, checkAgainst)  => {
     }
 }
 
-const authorization = (req,res,next) => {
+const authorization = (req,_res,next) => {
     req.verifedUser = jwt.verify(req.headers.authorization, secret);
-    res.send('authorization was successful');
     next();
 };
 
@@ -19,7 +18,7 @@ const authorizationClient = (req,res,next) => {
     } catch {
         return res.status(406).send('Invalid  Role')
     }
-    res.send('authorization was successful');
+
     next();
 };
 
@@ -30,7 +29,6 @@ const authorizationWorker = (req,res,next) => {
     } catch {
         return res.status(406).send('Invalid  Role')
     }
-    res.send('authorization was successful');
     next();
 };
 

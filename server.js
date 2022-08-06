@@ -1,6 +1,6 @@
 const  express = require('express'); 
-const jsonParser = bodyParser.json({type:'*/*'}); 
 const bodyParser = require('body-parser'); 
+const jsonParser = bodyParser.json({type:'*/*'}); 
 const userRouter = require('./router/users'); 
 const queueRouter = require('./router/queues')
 

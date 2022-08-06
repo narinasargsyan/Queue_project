@@ -7,5 +7,6 @@ const queueRouter = new express.Router();
 
 queueRouter.post('/add', [ authorization, authorizationClient], queue.add); 
 queueRouter.post('/getClient', [authorization,authorizationWorker], queue.getClient);
+queueRouter.post('/finish', [authorization,authorizationWorker], queue.queueFinished);
  
 module.exports = queueRouter;
