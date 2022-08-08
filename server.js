@@ -10,4 +10,4 @@ app.use(jsonParser);
 app.use('/users', userRouter); 
 app.use('/queues', queueRouter); 
  
-app.listen('4041', 'localhost');
+app.listen(process.env.APP_PORT)

@@ -2,7 +2,8 @@ const fs = require('fs');
 const path = require('path');
 const Sequelize = require('sequelize');
 const { dbConfig } = require('../../config/config');
-console.log(dbConfig)
+console.log('dbConfig', dbConfig)
+
 
 const baseName = path.basename(__filename);
 const db = {};

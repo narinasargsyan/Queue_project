@@ -1,3 +1,5 @@
+
+
 const models = require('../db/models');
 
  class QueueController {
@@ -66,6 +68,52 @@ const models = require('../db/models');
         res.send('something went wrong')
     }
    };
+
+   getPending = async (req,res) => {
+    try {
+      const queue = await models.Queues.findAll({
+         where: { status:0 }
+      })
+      res.send(queue);
+    } catch (e) {
+      console.log('Error', e)
+      res.send('something went wrong')
+    }
+   }
+
+   getInProgress = async (req,res) => {
+      try {
+        const queue = await models.Queues.findAll({
+           where: { status:1 }
+        })
+        res.send(queue);
+      } catch (e) {
+        console.log('Error', e)
+        res.send('something went wrong')
+      }
+   }
+  
+   getFinished = async (req,res) => {
+      try {
+        const queue = await models.Queues.findAll({
+           where: { status:2 }
+        })
+        res.send(queue);
+      } catch (e) {
+        console.log('Error', e)
+        res.send('something went wrong')
+      }
+   }
+
+   getAll = async (req,res) => {
+      try {
+        const queue = await models.Queues.findAll()
+        res.send(queue);
+      } catch (e) {
+        console.log('Error', e)
+        res.send('something went wrong')
+      }
+   }
 
 }
 
